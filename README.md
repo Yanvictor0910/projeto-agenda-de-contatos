@@ -1,1 +1,4 @@
-# Projeto de uma agenda de contatos feito para afins de estudos
+# Projeto de uma agenda de contatos feito para fins de estudo.
+
+npm i
+npm run start
