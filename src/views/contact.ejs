@@ -1,0 +1,47 @@
+<%- include('includes/head'); %>
+    <%- include('includes/navbar'); %>
+
+        <section>
+            <div class="container mt-5">
+                <h1 class="text-center mb-4">Contato</h1>
+                <h4 class="text-center">Crie ou edite seus contatos abaixo</h4>
+                <%- include('includes/messages') %>
+                <div class="row justify-content-center">
+                    <div class="col-8">
+                        <% if(contact._id){ %>
+                            <form class="form-contato" action="/contact/edit/<%= contact._id %>" method="post">
+                        <% }else {%>
+                            <form class="form-contato" action="/contact/register" method="post">
+                        <% } %>
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <div class="mb-2 mt-4">
+                                <label for="name" class="form-label">Nome:</label>
+                                <input type="text" class="form-control" id="name" value="<%= contact.name %>"
+                                    name="name">
+                            </div>
+                            <div class="mb-2 mt-4">
+                                <label for="surname" class="form-label">Sobrenome:</label>
+                                <input type="text" class="form-control" id="surname" value="<%= contact.surname %>"
+                                    name="surname">
+                            </div>
+                            <div class="mb-2 mt-4">
+                                <label for="email" class="form-label">E-mail:</label>
+                                <input type="email" class="form-control" id="email" value="<%= contact.email %>"
+                                    name="email">
+                            </div>
+                            <div class="mb-2 mt-4">
+                                <label for="telphone" class="form-label">Telefone:</label>
+                                <input type="tel" class="form-control" id="telphone" value="<%= contact.telphone %>"
+                                    name="telphone">
+                            </div>
+                            <div class="message-error"></div>
+                            <button type="submit" class="btn btn-primary mt-3">Salvar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+<%- include('includes/footer'); %>

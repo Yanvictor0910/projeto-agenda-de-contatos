@@ -1,4 +1,5 @@
 # Projeto de uma agenda de contatos feito para fins de estudo.
 
-npm i
-npm run start
+rode os comandos a seguir:  
+*npm i*  
+*npm run start* 

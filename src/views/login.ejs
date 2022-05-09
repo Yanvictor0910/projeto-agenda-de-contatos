@@ -1,0 +1,51 @@
+<%- include('includes/head'); %>
+    <%- include('includes/navbar'); %>
+
+        <section>
+            <div class="container mt-5">
+                <h1 class="text-center mb-5">Crie sua conta ou faça Login</h1>
+                <%- include('includes/messages') %>
+                <div class="row">
+                    <div class="col">
+                        <h4>Se você não possui uma conta, crie abaixo:</h4>
+                        <form action="/login/register" class="form-cadastro" method="post">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <div class="mb-3 mt-5">
+                                <label for="email" class="form-label">Seu Email:</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email"
+                                    name="email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="pwd" class="form-label">Senha:</label>
+                                <input type="password" class="form-control" id="pwd" placeholder="Enter password"
+                                    name="password">
+                            </div>
+                            <div class="message-error"></div>    
+                            <button type="submit" class="btn btn-primary mt-3">Criar minha conta</button>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <h4>Se possui uma conta, faça login abaixo abaixo:</h4>
+                        <form action="/login/login" class="form-login" method="post">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <div class="mb-3 mt-5">
+                                <label for="email" class="form-label">Seu Email:</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email"
+                                    name="email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="pwd" class="form-label">Senha:</label>
+                                <input type="password" class="form-control" id="pwd" placeholder="Enter password"
+                                    name="password">
+                            </div>
+                            <div class="message-error"></div>    
+                            <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+<%- include('includes/footer'); %>

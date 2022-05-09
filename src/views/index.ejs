@@ -1,0 +1,46 @@
+<%- include('includes/head'); %>
+<%- include('includes/navbar'); %>    
+
+<section>
+    <div class="container">
+        <h1 class="text-center mt-5">Agenda de Contato</h1>
+        <div class="row mt-4 mb-5 d-flex justify-content-center">
+            <div class="col-lg-8">
+                <%- include('includes/messages') %>
+                <% if (contacts.length > 0 ) { %>
+                <div class="responsive-table">
+                    <table class="table">
+                        <% contacts.forEach(contact => { %>
+                        <tr>
+                            <td>
+                                <%= contact.name %>
+                            </td>
+                            <td>
+                                <%= contact.surname %>
+                            </td>
+                            <td>
+                                <%= contact.email %>
+                            </td>
+                            <td>
+                                <%= contact.telphone %>
+                            </td>
+                            <td>
+                                <a href="/contact/<%= contact._id %>">Editar</a>
+                                <a href="/contact/delete/<%= contact._id %>">Excluir</a>
+                            </td>
+                        </tr>
+                        <% }); %>
+                    </table>
+                </div>
+                <% }else { %>
+                    <div class="text-center">
+                        <h1 class="mt-5">Você ainda não cadastrou nenhum contato</h1>
+                        <a class="mt-5" href="/contact">Cadastrar contato</a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('includes/footer'); %>
