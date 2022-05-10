@@ -44,7 +44,10 @@ export default class Contact{
             }
         }
 
-        
+        if(emailInput.value === '' && telphoneInput.value === ''){
+            messages.messageError('Você precisa preencher ao menos um dos campos(E-mail ou Telefone)', el);
+            error = true;
+        }
 
         if(!error) el.submit();
     }
